@@ -1,0 +1,19 @@
+@use "../../styles/variables" as *;
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+}
+
+.title {
+  font-size: $font-xl;
+  font-weight: 600;
+  color: $color-text-primary;
+}
+
+.grid {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+}

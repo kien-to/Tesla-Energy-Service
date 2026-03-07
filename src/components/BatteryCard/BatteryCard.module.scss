@@ -1,0 +1,117 @@
+@use "../../styles/variables" as *;
+
+.card {
+  display: flex;
+  background: $color-bg-card;
+  border: 1px solid $color-border;
+  border-radius: $radius-lg;
+  overflow: hidden;
+  transition: border-color 0.2s;
+
+  &:hover {
+    border-color: $color-text-muted;
+  }
+}
+
+.colorStripe {
+  width: 4px;
+  flex-shrink: 0;
+}
+
+.content {
+  flex: 1;
+  padding: $spacing-md;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.name {
+  font-size: $font-base;
+  font-weight: 600;
+  color: $color-text-primary;
+}
+
+.year {
+  font-size: $font-xs;
+  color: $color-text-muted;
+  background: $color-bg-hover;
+  padding: 2px $spacing-sm;
+  border-radius: $radius-sm;
+}
+
+.specs {
+  display: flex;
+  gap: $spacing-md;
+  font-size: $font-sm;
+  color: $color-text-secondary;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+  margin-top: $spacing-xs;
+}
+
+.btn {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: $color-bg-hover;
+  border: 1px solid $color-border;
+  border-radius: $radius-sm;
+  color: $color-text-primary;
+  font-size: $font-lg;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s;
+
+  &:hover:not(:disabled) {
+    background: $color-border;
+    border-color: $color-text-muted;
+  }
+
+  &:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+  }
+}
+
+.qtyInput {
+  width: 56px;
+  height: 32px;
+  text-align: center;
+  background: $color-bg-secondary;
+  border: 1px solid $color-border;
+  border-radius: $radius-sm;
+  color: $color-text-primary;
+  font-size: $font-base;
+  font-family: inherit;
+
+  &:focus {
+    outline: none;
+    border-color: $color-accent;
+  }
+
+  // Hide number input arrows
+  &::-webkit-inner-spin-button,
+  &::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  -moz-appearance: textfield;
+}
+
+.readOnlyQty {
+  font-size: $font-sm;
+  color: $color-text-muted;
+  font-style: italic;
+}
