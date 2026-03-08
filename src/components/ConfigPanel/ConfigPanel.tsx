@@ -1,20 +1,18 @@
 "use client";
 
-import { SiteConfig, CalculationResult } from "@/lib/types";
-import { BATTERY_CATALOG, TRANSFORMER } from "@/lib/batteries";
+import { SiteConfig } from "@/lib/types";
+import { BATTERY_CATALOG } from "@/lib/batteries";
 import BatteryCard from "@/components/BatteryCard/BatteryCard";
 import styles from "./ConfigPanel.module.scss";
 
 interface ConfigPanelProps {
   config: SiteConfig;
   onQuantityChange: (batteryId: string, qty: number) => void;
-  calculation: CalculationResult | null;
 }
 
 export default function ConfigPanel({
   config,
   onQuantityChange,
-  calculation,
 }: ConfigPanelProps) {
   return (
     <section className={styles.panel}>
@@ -28,12 +26,6 @@ export default function ConfigPanel({
             onQuantityChange={(qty) => onQuantityChange(battery.id, qty)}
           />
         ))}
-        <BatteryCard
-          battery={TRANSFORMER}
-          quantity={calculation?.numTransformers ?? 0}
-          onQuantityChange={() => {}}
-          readOnly
-        />
       </div>
     </section>
   );

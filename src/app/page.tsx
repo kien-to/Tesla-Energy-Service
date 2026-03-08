@@ -34,7 +34,6 @@ export default function Home() {
         <ConfigPanel
           config={config}
           onQuantityChange={setQuantity}
-          calculation={calculation}
         />
         <SummaryPanel calculation={calculation} layout={layout} />
       </div>
