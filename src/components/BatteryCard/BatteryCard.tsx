@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { BatteryType } from "@/lib/types";
 import styles from "./BatteryCard.module.scss";
 
@@ -18,10 +19,15 @@ export default function BatteryCard({
 }: BatteryCardProps) {
   return (
     <div className={styles.card}>
-      <div
-        className={styles.colorStripe}
-        style={{ backgroundColor: battery.color }}
-      />
+      <div className={styles.imageWrapper}>
+        <Image
+          src={`/images/${battery.id}.png`}
+          alt={battery.name}
+          width={80}
+          height={60}
+          className={styles.image}
+        />
+      </div>
       <div className={styles.content}>
         <div className={styles.header}>
           <h3 className={styles.name}>{battery.name}</h3>
