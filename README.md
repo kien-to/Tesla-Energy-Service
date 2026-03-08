@@ -4,17 +4,10 @@ A web application for configuring and visualizing industrial battery site layout
 
 ## Tech Stack
 
-- **Frontend**: React 19 + Next.js 15 (App Router)
-- **Language**: TypeScript
-- **Styling**: SCSS Modules
-- **Deployment**: Vercel
+- **Frontend**: React + Next.js
+- **Backend**: TypeScript + Node.js
 
 ## Getting Started
-
-### Prerequisites
-
-- Node.js >= 18
-- npm
 
 ### Install & Run
 
@@ -25,7 +18,7 @@ make dev
 
 The app runs on [http://localhost:8000](http://localhost:8000).
 
-### Available Commands
+### Commands
 
 | Command      | Description                          |
 | ------------ | ------------------------------------ |
