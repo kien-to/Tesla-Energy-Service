@@ -9,14 +9,25 @@ A web application for configuring and visualizing industrial battery site layout
 
 ## Getting Started
 
-### Install & Run
+### Install & Run locally
 
 ```bash
-npm install
 make dev
 ```
 
 The app runs on [http://localhost:8000](http://localhost:8000).
+
+### Deployment
+
+The app is hosted on Vercel at [https://tesla-energy-service.vercel.app](https://tesla-energy-service.vercel.app).
+
+To deploy after making changes:
+
+```bash
+make deploy
+```
+
+This builds locally and uploads the prebuilt output to Vercel.
 
 ### Commands
 
@@ -41,18 +52,6 @@ The app runs on [http://localhost:8000](http://localhost:8000).
 | Transformer  | 10ft x 10ft | -0.5 MWh | $10,000 |
 
 > 1 transformer is required for every 2 batteries. Site layouts are constrained to 100ft max width.
-
-## Deployment
-
-The app is hosted on Vercel at [https://tesla-energy-service.vercel.app](https://tesla-energy-service.vercel.app).
-
-To deploy after making changes:
-
-```bash
-make deploy
-```
-
-This builds locally and uploads the prebuilt output to Vercel.
 
 ## Features
 

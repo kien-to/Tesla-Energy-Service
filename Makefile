@@ -1,6 +1,7 @@
 .PHONY: dev build serve lint test deploy clean
 
 dev:
+	npm install
 	npm run dev
 
 build:
