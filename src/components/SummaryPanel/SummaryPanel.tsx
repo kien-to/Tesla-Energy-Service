@@ -30,6 +30,11 @@ export default function SummaryPanel({
           <span className={styles.value}>
             ${calculation.totalCost.toLocaleString()}
           </span>
+          <span className={styles.breakdown}>
+            Batteries: ${calculation.batteryCost.toLocaleString()}
+            {" · "}
+            Transformers: ${calculation.transformerCost.toLocaleString()}
+          </span>
         </div>
         <div className={styles.metric}>
           <span className={styles.label}>Net Energy</span>

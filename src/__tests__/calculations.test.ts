@@ -49,9 +49,9 @@ describe("computeTotals", () => {
     });
     expect(result.totalBatteries).toBe(1);
     expect(result.numTransformers).toBe(1);
-    // 120000 (battery) + 10000 (transformer)
+    expect(result.batteryCost).toBe(120000);
+    expect(result.transformerCost).toBe(10000);
     expect(result.totalCost).toBe(130000);
-    // 4 MWh - 0.5 MWh (transformer)
     expect(result.totalEnergy).toBe(3.5);
   });
 

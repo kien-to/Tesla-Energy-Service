@@ -15,6 +15,8 @@ export interface SiteConfig {
 
 export interface CalculationResult {
   totalCost: number;
+  batteryCost: number;
+  transformerCost: number;
   totalEnergy: number;
   numTransformers: number;
   totalBatteries: number;

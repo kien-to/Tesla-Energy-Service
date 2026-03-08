@@ -50,6 +50,7 @@ function loadInitialConfig(): SiteConfig {
 export interface UseConfigReturn {
   config: SiteConfig;
   setQuantity: (batteryId: string, qty: number) => void;
+  resetConfig: () => void;
   calculation: CalculationResult | null;
   layout: LayoutResult | null;
   loading: boolean;

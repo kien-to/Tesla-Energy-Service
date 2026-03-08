@@ -8,23 +8,25 @@ export function computeTransformerCount(totalBatteries: number): number {
 
 export function computeTotals(config: SiteConfig): CalculationResult {
   let totalBatteries = 0;
-  let totalCost = 0;
+  let batteryCost = 0;
   let totalEnergy = 0;
 
   for (const battery of BATTERY_CATALOG) {
     const qty = config[battery.id] ?? 0;
     totalBatteries += qty;
-    totalCost += qty * battery.cost;
+    batteryCost += qty * battery.cost;
     totalEnergy += qty * battery.energy;
   }
 
   const numTransformers = computeTransformerCount(totalBatteries);
+  const transformerCost = numTransformers * TRANSFORMER.cost;
 
-  totalCost += numTransformers * TRANSFORMER.cost;
   totalEnergy += numTransformers * TRANSFORMER.energy;
 
   return {
-    totalCost,
+    totalCost: batteryCost + transformerCost,
+    batteryCost,
+    transformerCost,
     totalEnergy,
     numTransformers,
     totalBatteries,
