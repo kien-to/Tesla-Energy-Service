@@ -59,13 +59,26 @@ export interface UseConfigReturn {
 }
 
 export function useConfig(): UseConfigReturn {
-  const [config, setConfig] = useState<SiteConfig>(() => loadInitialConfig());
+  const [config, setConfig] = useState<SiteConfig>({ ...DEFAULT_CONFIG });
   const [calculation, setCalculation] = useState<CalculationResult | null>(null);
   const [layout, setLayout] = useState<LayoutResult | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [linkCopied, setLinkCopied] = useState(false);
   const debounceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const initialized = useRef(false);
+
+  // Load saved config after mount to avoid hydration mismatch
+  useEffect(() => {
+    if (!initialized.current) {
+      initialized.current = true;
+      const saved = loadInitialConfig();
+      const hasValues = Object.values(saved).some((v) => v > 0);
+      if (hasValues) {
+        setConfig(saved);
+      }
+    }
+  }, []);
 
   const setQuantity = useCallback((batteryId: string, qty: number) => {
     const clamped = Math.max(0, Math.min(500, Math.floor(qty)));

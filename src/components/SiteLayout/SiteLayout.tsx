@@ -1,5 +1,6 @@
 "use client";
 
+import { useRef, useState, useEffect } from "react";
 import { LayoutResult } from "@/lib/types";
 import styles from "./SiteLayout.module.scss";
 
@@ -8,6 +9,20 @@ interface SiteLayoutProps {
 }
 
 export default function SiteLayout({ layout }: SiteLayoutProps) {
+  const wrapperRef = useRef<HTMLDivElement>(null);
+  const [containerWidth, setContainerWidth] = useState(800);
+
+  useEffect(() => {
+    const measure = () => {
+      if (wrapperRef.current) {
+        setContainerWidth(wrapperRef.current.clientWidth);
+      }
+    };
+    measure();
+    window.addEventListener("resize", measure);
+    return () => window.removeEventListener("resize", measure);
+  }, []);
+
   if (!layout || layout.items.length === 0) {
     return (
       <section className={styles.panel}>
@@ -19,7 +34,7 @@ export default function SiteLayout({ layout }: SiteLayoutProps) {
     );
   }
 
-  const scale = Math.min(1, 800 / layout.siteWidth);
+  const scale = containerWidth / layout.siteWidth;
 
   return (
     <section className={styles.panel}>
@@ -27,7 +42,7 @@ export default function SiteLayout({ layout }: SiteLayoutProps) {
       <p className={styles.dimensions}>
         {layout.siteWidth}ft x {layout.siteHeight}ft &middot; Max width 100ft
       </p>
-      <div className={styles.canvasWrapper}>
+      <div className={styles.canvasWrapper} ref={wrapperRef}>
         <div
           className={styles.canvas}
           style={{
