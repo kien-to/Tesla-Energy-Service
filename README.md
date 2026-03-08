@@ -34,6 +34,7 @@ The app runs on [http://localhost:8000](http://localhost:8000).
 | `make serve` | Build and start production server    |
 | `make test`  | Run unit tests (Jest)                |
 | `make lint`  | Run ESLint                           |
+| `make deploy`| Build and deploy to Vercel           |
 | `make clean` | Remove build artifacts               |
 
 ## Battery Catalog
@@ -55,11 +56,10 @@ The app is hosted on Vercel at [https://tesla-energy-service.vercel.app](https:/
 To deploy after making changes:
 
 ```bash
-npx vercel build --prod
-npx vercel --prebuilt --prod
+make deploy
 ```
 
-This builds locally and uploads the output to Vercel, avoiding remote build issues.
+This builds locally and uploads the prebuilt output to Vercel.
 
 ## Features
 
