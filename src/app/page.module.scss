@@ -1,0 +1,65 @@
+@use "../styles/variables" as *;
+@use "../styles/mixins" as *;
+
+.main {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: $spacing-xl $spacing-lg;
+  min-height: 100vh;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: $spacing-xl;
+  flex-wrap: wrap;
+  gap: $spacing-md;
+}
+
+.title {
+  font-size: $font-3xl;
+  font-weight: 700;
+}
+
+.saveBtn {
+  padding: $spacing-sm $spacing-md;
+  background: $color-bg-card;
+  border: 1px solid $color-border;
+  border-radius: $radius-md;
+  color: $color-text-primary;
+  font-size: $font-sm;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s;
+
+  &:hover {
+    background: $color-bg-hover;
+    border-color: $color-text-muted;
+  }
+}
+
+.error {
+  color: $color-accent;
+  font-size: $font-sm;
+  margin-bottom: $spacing-md;
+}
+
+.loading {
+  color: $color-text-muted;
+  font-size: $font-sm;
+  margin-bottom: $spacing-md;
+}
+
+.columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $spacing-xl;
+
+  @media (max-width: $breakpoint-md) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.layoutSection {
+  margin-top: $spacing-xl;
+}

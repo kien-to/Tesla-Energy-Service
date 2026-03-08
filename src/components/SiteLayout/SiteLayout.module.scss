@@ -1,0 +1,89 @@
+@use "../../styles/variables" as *;
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+}
+
+.title {
+  font-size: $font-xl;
+  font-weight: 600;
+}
+
+.dimensions {
+  font-size: $font-sm;
+  color: $color-text-secondary;
+}
+
+.empty {
+  background: $color-bg-card;
+  border: 1px dashed $color-border;
+  border-radius: $radius-lg;
+  padding: $spacing-2xl;
+  text-align: center;
+  color: $color-text-muted;
+  font-size: $font-sm;
+}
+
+.canvasWrapper {
+  overflow-x: auto;
+  padding: $spacing-md 0;
+}
+
+.canvas {
+  position: relative;
+  background: $color-bg-secondary;
+  border: 1px solid $color-border;
+  border-radius: $radius-md;
+}
+
+.device {
+  position: absolute;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: $radius-sm;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  cursor: default;
+  transition: opacity 0.15s;
+
+  &:hover {
+    opacity: 0.85;
+  }
+}
+
+.deviceLabel {
+  font-size: 10px;
+  font-weight: 600;
+  color: #fff;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  padding: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-md;
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  gap: $spacing-xs;
+  font-size: $font-sm;
+  color: $color-text-secondary;
+}
+
+.legendSwatch {
+  width: 12px;
+  height: 12px;
+  border-radius: 2px;
+  flex-shrink: 0;
+}

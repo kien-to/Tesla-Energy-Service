@@ -3,32 +3,44 @@
 import { useConfig } from "@/hooks/useConfig";
 import ConfigPanel from "@/components/ConfigPanel/ConfigPanel";
 import SummaryPanel from "@/components/SummaryPanel/SummaryPanel";
+import SiteLayout from "@/components/SiteLayout/SiteLayout";
+import styles from "./page.module.scss";
 
 export default function Home() {
-  const { config, setQuantity, calculation, layout, loading, error } =
-    useConfig();
+  const {
+    config,
+    setQuantity,
+    calculation,
+    layout,
+    loading,
+    error,
+    copyLink,
+    linkCopied,
+  } = useConfig();
 
   return (
-    <main style={{ maxWidth: 1280, margin: "0 auto", padding: "32px 24px" }}>
-      <h1 style={{ fontSize: "1.875rem", fontWeight: 700, marginBottom: 32 }}>
-        Tesla Energy Site Planner
-      </h1>
+    <main className={styles.main}>
+      <div className={styles.header}>
+        <h1 className={styles.title}>Tesla Energy Site Planner</h1>
+        <button className={styles.saveBtn} onClick={copyLink}>
+          {linkCopied ? "Link copied!" : "Save & Copy Link"}
+        </button>
+      </div>
 
-      {error && (
-        <p style={{ color: "#e31937", marginBottom: 16 }}>{error}</p>
-      )}
+      {error && <p className={styles.error}>{error}</p>}
+      {loading && <p className={styles.loading}>Calculating...</p>}
 
-      {loading && (
-        <p style={{ color: "#a0a0a0", marginBottom: 16 }}>Calculating...</p>
-      )}
-
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 24 }}>
+      <div className={styles.columns}>
         <ConfigPanel
           config={config}
           onQuantityChange={setQuantity}
           calculation={calculation}
         />
         <SummaryPanel calculation={calculation} layout={layout} />
+      </div>
+
+      <div className={styles.layoutSection}>
+        <SiteLayout layout={layout} />
       </div>
     </main>
   );
