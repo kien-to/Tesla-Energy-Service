@@ -32,6 +32,7 @@ The app runs on [http://localhost:8000](http://localhost:8000).
 | `make dev`   | Start dev server with hot reload     |
 | `make build` | Production build                     |
 | `make serve` | Build and start production server    |
+| `make test`  | Run unit tests (Jest)                |
 | `make lint`  | Run ESLint                           |
 | `make clean` | Remove build artifacts               |
 
@@ -46,6 +47,19 @@ The app runs on [http://localhost:8000](http://localhost:8000).
 | Transformer  | 10ft x 10ft | -0.5 MWh | $10,000 |
 
 > 1 transformer is required for every 2 batteries. Site layouts are constrained to 100ft max width.
+
+## Deployment
+
+The app is hosted on Vercel at [https://tesla-energy-service.vercel.app](https://tesla-energy-service.vercel.app).
+
+To deploy after making changes:
+
+```bash
+npx vercel build --prod
+npx vercel --prebuilt --prod
+```
+
+This builds locally and uploads the output to Vercel, avoiding remote build issues.
 
 ## Features
 
