@@ -22,7 +22,13 @@
   font-weight: 700;
 }
 
-.saveBtn {
+.headerActions {
+  display: flex;
+  gap: $spacing-sm;
+}
+
+.saveBtn,
+.resetBtn {
   padding: $spacing-sm $spacing-md;
   background: $color-bg-card;
   border: 1px solid $color-border;
@@ -36,6 +42,10 @@
     background: $color-bg-hover;
     border-color: $color-text-muted;
   }
+}
+
+.resetBtn {
+  color: $color-text-secondary;
 }
 
 .error {

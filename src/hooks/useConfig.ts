@@ -86,6 +86,10 @@ export function useConfig(): UseConfigReturn {
     setConfig((prev) => ({ ...prev, [batteryId]: clamped }));
   }, []);
 
+  const resetConfig = useCallback(() => {
+    setConfig({ ...DEFAULT_CONFIG });
+  }, []);
+
   // Auto-sync config to URL and localStorage
   useEffect(() => {
     const encoded = encodeConfig(config);
@@ -144,6 +148,7 @@ export function useConfig(): UseConfigReturn {
   return {
     config,
     setQuantity,
+    resetConfig,
     calculation,
     layout,
     loading,

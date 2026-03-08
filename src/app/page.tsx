@@ -10,6 +10,7 @@ export default function Home() {
   const {
     config,
     setQuantity,
+    resetConfig,
     calculation,
     layout,
     loading,
@@ -22,9 +23,14 @@ export default function Home() {
     <main className={styles.main}>
       <div className={styles.header}>
         <h1 className={styles.title}>Tesla Energy Site Planner</h1>
-        <button className={styles.saveBtn} onClick={copyLink}>
-          {linkCopied ? "Link copied!" : "Save & Copy Link"}
-        </button>
+        <div className={styles.headerActions}>
+          <button className={styles.resetBtn} onClick={resetConfig}>
+            Reset
+          </button>
+          <button className={styles.saveBtn} onClick={copyLink}>
+            {linkCopied ? "Link copied!" : "Save & Copy Link"}
+          </button>
+        </div>
       </div>
 
       {error && <p className={styles.error}>{error}</p>}
