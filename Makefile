@@ -1,4 +1,4 @@
-.PHONY: dev build serve lint clean
+.PHONY: dev build serve lint test clean
 
 dev:
 	npm run dev
@@ -8,6 +8,9 @@ build:
 
 serve: build
 	npm run start
+
+test:
+	npm test
 
 lint:
 	npm run lint
