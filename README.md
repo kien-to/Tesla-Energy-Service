@@ -36,7 +36,7 @@ This builds locally and uploads the prebuilt output to Vercel.
 | `make dev`   | Start dev server with hot reload     |
 | `make build` | Production build                     |
 | `make serve` | Build and start production server    |
-| `make test`  | Run unit tests (Jest)                |
+| `make test`  | Run unit tests                       |
 | `make lint`  | Run ESLint                           |
 | `make deploy`| Build and deploy to Vercel           |
 | `make clean` | Remove build artifacts               |
@@ -52,10 +52,3 @@ This builds locally and uploads the prebuilt output to Vercel.
 | Transformer  | 10ft x 10ft | -0.5 MWh | $10,000 |
 
 > 1 transformer is required for every 2 batteries. Site layouts are constrained to 100ft max width.
-
-## Features
-
-- Configure battery quantities with live cost/energy/land summaries
-- Auto-generated 2D site layout with color-coded devices
-- Session save/load that persists across cache clears (URL-encoded state)
-- Responsive dark-themed UI
