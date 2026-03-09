@@ -38,7 +38,7 @@ export default function SummaryPanel({
         </div>
         <div className={styles.metric}>
           <span className={styles.label}>Net Energy</span>
-          <span className={styles.value}>{calculation.totalEnergy} MWh</span>
+          <span className={styles.value}>{Math.round(calculation.totalEnergy * 10) / 10} MWh</span>
         </div>
         <div className={styles.metric}>
           <span className={styles.label}>Land Size</span>
