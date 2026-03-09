@@ -13,7 +13,6 @@ export default function Home() {
     resetConfig,
     calculation,
     layout,
-    loading,
     error,
     copyLink,
     linkCopied,
@@ -34,7 +33,6 @@ export default function Home() {
       </div>
 
       {error && <p className={styles.error}>{error}</p>}
-      {loading && <p className={styles.loading}>Calculating...</p>}
 
       <div className={styles.columns}>
         <ConfigPanel

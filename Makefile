@@ -1,7 +1,10 @@
-.PHONY: dev build serve lint test deploy clean
+.PHONY: dev run build serve lint test deploy clean
 
 dev:
 	npm install
+	npm run dev
+
+run:
 	npm run dev
 
 build:

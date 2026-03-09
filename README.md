@@ -15,7 +15,15 @@ A web application for configuring and visualizing industrial battery site layout
 make dev
 ```
 
-The app runs on [http://localhost:8000](http://localhost:8000).
+to install & run locally. The app runs on [http://localhost:8000](http://localhost:8000).
+
+or 
+
+```bash
+make run
+```
+
+to run without install.
 
 ### Deployment
 
@@ -31,24 +39,30 @@ This builds locally and uploads the prebuilt output to Vercel.
 
 ### Commands
 
-| Command      | Description                          |
-| ------------ | ------------------------------------ |
-| `make dev`   | Start dev server with hot reload     |
-| `make build` | Production build                     |
-| `make serve` | Build and start production server    |
-| `make test`  | Run unit tests                       |
-| `make lint`  | Run ESLint                           |
-| `make deploy`| Build and deploy to Vercel           |
-| `make clean` | Remove build artifacts               |
+
+| Command       | Description                               |
+| ------------- | ----------------------------------------- |
+| `make dev`    | Install dependencies and start dev server |
+| `make run`    | Start dev server (skip install)           |
+| `make build`  | Production build                          |
+| `make serve`  | Build and start production server         |
+| `make test`   | Run unit tests                            |
+| `make lint`   | Run ESLint                                |
+| `make deploy` | Build and deploy to Vercel                |
+| `make clean`  | Remove build artifacts                    |
+
 
 ## Battery Catalog
 
-| Device       | Dimensions  | Energy  | Cost      |
-| ------------ | ----------- | ------- | --------- |
-| Megapack XL  | 40ft x 10ft | 4 MWh   | $120,000  |
-| Megapack 2   | 30ft x 10ft | 3 MWh   | $80,000   |
-| Megapack     | 30ft x 10ft | 2 MWh   | $50,000   |
-| PowerPack    | 10ft x 10ft | 1 MWh   | $10,000   |
-| Transformer  | 10ft x 10ft | -0.5 MWh | $10,000 |
+
+| Device      | Dimensions  | Energy   | Cost     |
+| ----------- | ----------- | -------- | -------- |
+| Megapack XL | 40ft x 10ft | 4 MWh    | $120,000 |
+| Megapack 2  | 30ft x 10ft | 3 MWh    | $80,000  |
+| Megapack    | 30ft x 10ft | 2 MWh    | $50,000  |
+| PowerPack   | 10ft x 10ft | 1 MWh    | $10,000  |
+| Transformer | 10ft x 10ft | -0.5 MWh | $10,000  |
+
 
 > 1 transformer is required for every 2 batteries. Site layouts are constrained to 100ft max width.
+
